@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You For Your Interest! - Naleko</title>
+    <style>
+        :root {
+            --navy-dark: #0d1243;
+            --text-dark: #1e255e;
+            --text-muted: #333333;
+            --bg-gradient-start: #f4f7fc;
+            --bg-gradient-end: #eaf0f9;
+            --card-bg: #f0f3f8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Decorative Abstract Confetti Background Elements */
+        .decor {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        .dot-blue { width: 8px; height: 8px; background: #2b579a; border-radius: 50%; }
+        .dot-light { width: 12px; height: 12px; border: 2px solid #b0c4de; border-radius: 50%; }
+        .square-tilt { width: 10px; height: 10px; background: #90b0df; transform: rotate(45deg); }
+        
+        /* Layout Container */
+        .thank-you-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: center;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Success Checkmark Circle */
+        .checkmark-circle {
+            width: 90px;
+            height: 90px;
+            border: 6px solid var(--navy-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 35px;
+            background: transparent;
+        }
+
+        .checkmark-icon {
+            width: 22px;
+            height: 40px;
+            border: solid var(--navy-dark);
+            border-width: 0 6px 6px 0;
+            transform: rotate(45deg);
+            margin-bottom: 8px;
+        }
+
+        /* Main Heading */
+        h1 {
+            color: var(--navy-dark);
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Description Message */
+        .main-message {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            max-width: 580px;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+
+        /* Highlighted Notification Container */
+        .notification-card {
+            background-color: var(--card-bg);
+            border-radius: 14px;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 45px;
+        }
+
+        /* Calendar Graphical CSS Asset */
+        .calendar-icon {
+            width: 50px;
+            height: 48px;
+            border: 4px solid var(--navy-dark);
+            border-radius: 8px;
+            position: relative;
+            background: transparent;
+            flex-shrink: 0;
+        }
+        .calendar-icon::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background-color: var(--navy-dark);
+        }
+        .calendar-icon::after {
+            content: '••• ••• •••';
+            position: absolute;
+            bottom: 6px;
+            left: 4px;
+            color: var(--navy-dark);
+            font-size: 10px;
+            line-height: 5px;
+            letter-spacing: 1px;
+        }
+        .calendar-binder {
+            position: absolute;
+            top: -10px;
+            width: 4px;
+            height: 10px;
+            background: var(--navy-dark);
+            border-radius: 2px;
+        }
+
+        .notification-text {
+            font-size: 15px;
+            color: var(--text-muted);
+            text-align: left;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Support Block */
+        .questions-block {
+            font-size: 15px;
+            color: var(--navy-dark);
+            margin-bottom: 45px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .questions-block a {
+            color: var(--navy-dark);
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        /* Footer Button */
+        .btn-back {
+            background-color: var(--navy-dark);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 40px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(13, 18, 67, 0.2);
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #1a226b;
+        }
+
+        .btn-back:active {
+            transform: scale(0.98);
+        }
+
+        /* Precise Positioning for Background Shapes */
+        .d1 { top: 10%; left: 10%; }
+        .d2 { top: 25%; left: 25%; }
+        .d3 { top: 48%; left: 8%; }
+        .d4 { top: 15%; right: 15%; }
+        .d5 { top: 38%; right: 9%; }
+        .d6 { bottom: 20%; left: 15%; }
+        .d7 { bottom: 15%; right: 25%; }
+    </style>
+</head>
+<body>
+
+    <!-- Background Decoration Matrix -->
+    <div class="decor dot-light d1"></div>
+    <div class="decor dot-blue d2"></div>
+    <div class="decor square-tilt d3"></div>
+    <div class="decor dot-light d4"></div>
+    <div class="decor square-tilt d5"></div>
+    <div class="decor dot-blue d6"></div>
+    <div class="decor dot-light d7"></div>
+
+    <!-- Main Thank You Display Block -->
+    <div class="thank-you-container">
+        
+        <!-- Large Checkmark Wrapper -->
+        <div class="checkmark-circle">
+            <div class="checkmark-icon"></div>
+        </div>
+
+        <!-- Document Content Stack -->
+        <h1>Thank You For Your Interest!</h1>
+        
+        <p class="main-message">
+            We have received your request and one of our experts will get in touch with you shortly to confirm the details.
+        </p>
+
+        <!-- Highlighted Calendar Segment -->
+        <div class="notification-card">
+            <div class="calendar-icon">
+                <div class="calendar-binder" style="left: 8px;"></div>
+                <div class="calendar-binder" style="right: 8px;"></div>
+            </div>
+            <div class="notification-text">
+                We'll send a confirmation email with the event details to your inbox.
+            </div>
+        </div>
+
+        <!-- Direct Contact Arena -->
+        <div class="questions-block">
+            Have any questions?<br>
+            Contact us at <a href="mailto:admin@naleko.com">admin@naleko.com</a>
+        </div>
+
+        <!-- Navigation Action Hook -->
+        <a href="#" class="btn-back">Back to the page</a>
+
+    </div>
+
+</body>
+</html>
